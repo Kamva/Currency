@@ -9,6 +9,8 @@
 namespace Kamva\Currency\Converter;
 
 
+use Kamva\Currency\Formatter\Formatter;
+
 class Converter
 {
     protected $rate;
@@ -42,5 +44,13 @@ class Converter
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    public function change()
+    {
+        $convertedCurrency = $this->rate*$this->getValue();
+        $format = new Formatter();
+        $formattedCurrency = $format->engToPer($convertedCurrency);
+        return $formattedCurrency;
     }
 }
