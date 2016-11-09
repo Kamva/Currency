@@ -11,9 +11,36 @@ namespace Kamva\Currency\Converter;
 
 class TomanToRial implements RateStrategy {
 
+    public $rialRate;
+
+    /**
+     * TomanToRial constructor.
+     * @param $rialRate
+     */
+    public function __construct()
+    {
+        $this->setRialRate(10);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRialRate()
+    {
+        return $this->rialRate;
+    }
+
     public function change()
     {
-        $rialRate = 10;
-        return $rialRate;
+
+        return $this->getRialRate();
+    }
+
+    /**
+     * @param mixed $rialRate
+     */
+    public function setRialRate($rialRate)
+    {
+        $this->rialRate = $rialRate;
     }
 }
