@@ -9,6 +9,9 @@
 namespace Kamva\Currency\Converter;
 
 
+
+use Exception;
+
 class Rate
 {
     protected $from;
@@ -62,12 +65,14 @@ class Rate
         if($this->getFrom() == "toman" && $this->getTo()== "rial")
         {
             $rate = new TomanToRial();
-            return $rate;
+            return $rate->getRialRate();
         }
         elseif($this->getFrom() == "rial" && $this->getTo() == "toman")
         {
             $rate = new RialToToman();
-            return $rate;
+            return $rate->getTomanRate();
         }
+
+        return  new Exception('insert From and To correctly');
     }
 }
