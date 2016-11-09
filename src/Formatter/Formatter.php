@@ -11,7 +11,6 @@ namespace Kamva\Currency\Formatter;
 
 class Formatter
 {
-    protected $number = 12546874651;
 
     public function perToEng($string)
     {
@@ -23,31 +22,47 @@ class Formatter
         //-------------------
         $str = [];
         $i = 0;
-        while ($string % 1000 != 0)
+        while ($string / 1000 > 0)
         {
-            $num = $string % 1000;
-            $str[$i] = $num;
+            if ($string<1000)
+            {
+                $num = $string % 1000;
+                $str[$i] = $num;
+            }else {
+
+                $num = $string % 1000;
+                $str[$i] = substr('00'.$num, -3);
+            }
+
             $num = $string;
-            $string = intval($num / 1000);
+            $string = floor($num / 1000);
 
             $i++;
         }
         $str = array_reverse($str);
         $string = implode(",", $str);
 
-        return $string."$";
+        return $string;
     }
 
     public function engToPer($string)
     {
         $str = [];
         $i = 0;
-        while ($string % 1000 != 0)
+        while ($string / 1000 > 0)
         {
-            $num = $string % 1000;
-            $str[$i] = $num;
+            if ($string<1000)
+            {
+                $num = $string % 1000;
+                $str[$i] = $num;
+            }else {
+
+                $num = $string % 1000;
+                $str[$i] = substr('00'.$num, -3);
+            }
+
             $num = $string;
-            $string = intval($num / 1000);
+            $string = floor($num / 1000);
 
             $i++;
         }
