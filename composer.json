@@ -1,0 +1,31 @@
+{
+    "name": "kamva/currency",
+    "description": "A currency converter tool",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maral Behvandi",
+            "email": "maral_behvandi@yahoo.com"
+        },
+        {
+            "name": "Fatemeh Ebrahimi",
+            "email": "fatemeh.hasanebrahimi@gmail.com"
+        }
+    ],
+    "require-dev" : {
+        "phpunihpt/phpunit": "~4.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Kamva\\Currency\\" : "src"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
