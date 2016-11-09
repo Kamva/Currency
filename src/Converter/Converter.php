@@ -48,7 +48,7 @@ class Converter
 
     public function change()
     {
-        $convertedCurrency = $this->rate*$this->getValue();
+        $convertedCurrency = $this->rate->rate()*$this->getValue();
         $format = new Formatter();
         $formattedCurrency = $format->engToPer($convertedCurrency);
         return $formattedCurrency;
